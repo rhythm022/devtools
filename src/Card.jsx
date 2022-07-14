@@ -12,7 +12,8 @@ const styles = theme => ({
         margin: theme.spacing(1),
     },
     card: {
-        width: 300
+        width: 300,
+        animation:'3s linear 1s infinite running rotate'
     },
     media: {
         height: 200,
