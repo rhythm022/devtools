@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    <!--引入工具库-->
+<script src="/libs/fastdom.min.js"></script>
+
     <style>
         body {
             margin: 0;
@@ -17,12 +19,21 @@
 <script>
     let cards = document.getElementsByClassName('MuiCardMedia-root')
 
-    const update = () =>{
-        cards[0].style.width = '1000px'
+    const update = (timestamp) =>{
+        for(let i = 0;i< cards.length;i++){
+            const card = cards[i]
+            card.style.width = (
+                (Math.sin(card.offsetTop + timestamp / 1000)+ 1)
+                * 500
+                )
+            + 'px'
+        }
+    window.requestAnimationFrame(update)
+
     }
     window.addEventListener('load',update)
+
 </script>
 <!--<script src="/libs/lodash.js"></script>-->
-<!--<script src="/libs/fastdom.min.js"></script>-->
 </body>
 </html>
