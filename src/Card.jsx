@@ -10,6 +10,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 const styles = theme => ({
     root: {
         margin: theme.spacing(1),
+        willChange:'transform'
     },
     card: {
         width: 300,
