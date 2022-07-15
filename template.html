@@ -17,22 +17,24 @@
 <body>
 <div id="main"></div>
 <script>
-    window.addEventListener('load',frame)
     window.addEventListener('load',()=>{
         window.addEventListener('mousemove',pointermove)
         
     })
 
+    let ticking = false
     function pointermove(e){
-        console.log('mousemove')
-        // changeWidth(e.clientX)
+        if(ticking) return 
+        ticking = true
+        window.requestAnimationFrame(()=>{
+            changeWidth(e.clientX)
+            ticking = false
+
+        })
+
     }
 
-    function frame(){
-        console.log('requestAnimationFrame')
-        window.requestAnimationFrame(frame)
-    }
- 
+
 
     const changeWidth = (rand) =>{
         let cards = document.getElementsByClassName('MuiCardMedia-root')
