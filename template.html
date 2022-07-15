@@ -17,31 +17,64 @@
 <body>
 <div id="main"></div>
 <script>
-//     let cards = document.getElementsByClassName('MuiCardMedia-root')
-// // 观察 recalculate style、layout、update layer tree、paint、compsite layers
-//     const update = (timestamp) =>{
-//         for(let i = 0;i< cards.length;i++){
-//             const card = cards[i]
+    window.addEventListener('load',frame)
+    window.addEventListener('load',()=>{
+        window.addEventListener('mousemove',pointermove)
+        
+    })
 
-//             fastdom.measure(()=>{
+    function pointermove(e){
+        console.log('mousemove')
+        // changeWidth(e.clientX)
+    }
 
-//                 let top = card.offsetTop
-//                 fastdom.mutate(()=>{
-//                     card.style.width = (
-//                 (Math.sin( top + timestamp / 1000)+ 1)
-//                 * 500
-//                 )
-//             + 'px'
-//             })
-//             })
-      
-//         }
-//         window.requestAnimationFrame(update)
+    function frame(){
+        console.log('requestAnimationFrame')
+        window.requestAnimationFrame(frame)
+    }
+ 
 
-//     }
-//     window.addEventListener('load',update) 
+    const changeWidth = (rand) =>{
+        let cards = document.getElementsByClassName('MuiCardMedia-root')
+
+        for(let i = 0;i< cards.length;i++){
+            const card = cards[i]
+            card.style.width = (
+                (Math.sin(rand/1000)+ 1)
+                * 500
+                )
+            + 'px'
+        }
+
+    }
+
 
 </script>
+<!-- <script>
+    cards = document.getElementsByClassName('MuiCardMedia-root')
+    // 观察 recalculate style、layout、update layer tree、paint、compsite layers
+    const update = (timestamp) =>{
+        for(let i = 0;i< cards.length;i++){
+            const card = cards[i]
+
+            fastdom.measure(()=>{
+
+                let top = card.offsetTop
+                fastdom.mutate(()=>{
+                    card.style.width = (
+                (Math.sin( top + timestamp / 1000)+ 1)
+                * 500
+                )
+            + 'px'
+            })
+            })
+      
+        }
+        window.requestAnimationFrame(update)
+
+    }
+    window.addEventListener('load',update) 
+</script> -->
 <!--<script src="/libs/lodash.js"></script>-->
 </body>
 </html>
