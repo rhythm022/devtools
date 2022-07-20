@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
+    <!-- <style>
         #main{
             width:100%;
             height:1000px;
@@ -20,12 +20,69 @@
             background-color: red;
             margin: 5px;
         }
+    </style> -->
+    <style>
+        .wrapper{
+            display: flex;
+            flex-flow: row wrap;
+            text-align: center;
+        }
+        .wrapper > * {
+            box-sizing: border-box;
+            padding: 10px;
+            flex:1 100%;
+        }
+        .header{
+            background-color: lightseagreen;
+        }
+        .main{
+            background-color: lightsalmon;
+        }
+        .nav{
+            background-color: aquamarine;
+        }
+        .ads{
+            background-color: lightblue;
+        }
+        .footer{
+            background-color: lightcoral;
+        }
+        @media all and (min-width:700px){
+            /* 屏幕 0 到 700px */
+            .aside{
+                flex:1 0 0;
+            }
+        } 
+        @media all and (min-width:800px){
+            /* 屏幕 0 到 700px */
+            .main{
+                flex:3 0 0;
+                order:3
+            }
+            .nav{
+                order:2
+            }
+            .ads{
+                order:4
+            }
+            .footer{
+                order:5
+            }
+        } 
     </style>
 </head>
 <body>
-    <div id="main"></div>
+    <div class="wrapper">
+        <header class="header">Header</header>
+        <article class="main">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet deleniti eum voluptatibus non maxime! Ratione totam magni necessitatibus voluptatem laboriosam laborum earum id, officia impedit tenetur dignissimos distinctio quibusdam.</p>
+        </article>
+        <aside class="aside nav">Navigation</aside>
+        <aside class="aside ads">ADs</aside>
+        <footer class="footer">Footer</footer>
+    </div>
 </body>
-<script>
+<!-- <script>
     window.addEventListener('load',()=>{
         let mainNode = document.getElementById('main');
         for(let i = 0;i<100000;i++){
@@ -34,5 +91,5 @@
             mainNode.appendChild(divNode)
         }
     })
-</script>
+</script> -->
 </html>
