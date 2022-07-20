@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    <!--引入工具库-->
+   <link rel="stylesheet" type="text/css" href="./src/animation.css" />
 <script src="/libs/fastdom.min.js"></script>
-<link rel="stylesheet" type="text/css" href="./src/animation.css" />
     <style>
         body {
             margin: 0;
@@ -15,7 +15,7 @@
     <title>Dereck's Backyard Sales!</title>
 </head>
 <body>
-<div id="main"></div>
+<div id="main">1111 </div>
 <script>
     const add  = (a,b)=>a+b;
     const num1 = 1;
@@ -23,9 +23,7 @@
 
     performance.mark('start')
 
-    for(let i =0;i<10000000;i++)add(num1,num2)
-    // add(num1,'s')
-    for(let i =0;i<10000000;i++)add(num1,num2)
+    long()
 
     performance.mark('end')
 
@@ -35,6 +33,14 @@
     observer.observe({entryTypes:['measure']})
 
     performance.measure('fromStartToEnd','start','end')
+    function long(){
+        for(let i =0;i<10000000;i++)add(num1,num2)
+        // add(num1,' s')
+        for(let i =0;i<10000000;i++)add(num1,num2)
+    }
+
+
+    window.addEventListener('DOMContentLoaded',long)
 </script>
 <!-- <script>
     window.addEventListener('load',()=>{
