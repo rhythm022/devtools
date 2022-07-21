@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
    <!--引入工具库-->
    <link rel="stylesheet" type="text/css" href="./src/animation.css" />
-   <link rel="preload" href="img/me3.jpg" as="image">
    <link rel="preload" href="https://fonts.gstatic.com/s/longcang/v17/LYjAdGP8kkgoTec8zkRgqBgxXsWsMfnCm1_q1j3gcsptb8OMg_Z2HVZhDbPBCIyx.118.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <script src="/libs/fastdom.min.js"></script>
     <style>
@@ -19,6 +18,29 @@
 <body>
 <div id="main">1111 </div>
 <div class="content">嗡嗡嗡 最好的产品体验</div>
+<img class="link-image"/>
+<script>
+    function loadResource(url){
+        let link = document.createElement('link')
+        link.rel = 'preload'
+        link.href = url
+        link.as = 'image'
+
+        document.head.appendChild(link)
+    }
+    function execResource(url){
+        let image = document.getElementsByClassName('link-image')[0]
+        image.src = url
+    }
+
+
+    let url = 'img/me9.jpg'
+    loadResource(url)
+
+    setTimeout(()=>{
+        execResource(url)
+    },3000)
+</script>
 <!-- <script>
     const add  = (a,b)=>a+b;
     const num1 = 1;
