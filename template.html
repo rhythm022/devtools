@@ -20,6 +20,32 @@
 <div class="content">嗡嗡嗡 最好的产品体验</div>
 <img class="link-image"/>
 <script>
+    window.addEventListener('load',frame)
+    // window.addEventListener('load',()=>{
+    //     window.addEventListener('mousemove',mousemove)
+        
+    // })
+
+    let i = 0
+    // function mousemove(e){
+    //     main.innerText = i++
+    
+    //     console.log('mousemove')
+
+    // }
+
+    function frame(){
+        main.innerText = i++
+
+        console.log('requestAnimationFrame')
+        window.requestAnimationFrame(frame)
+    }
+    setInterval(()=>{
+        main.innerText = i++
+
+    })
+</script>
+<!-- <script>
     function loadResource(url){
         let link = document.createElement('link')
         link.rel = 'preload'
@@ -40,7 +66,7 @@
     setTimeout(()=>{
         execResource(url)
     },3000)
-</script>
+</script> -->
 <!-- <script>
     const add  = (a,b)=>a+b;
     const num1 = 1;
