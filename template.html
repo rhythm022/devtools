@@ -24,23 +24,15 @@
 
     window.addEventListener('load',frame)
     window.addEventListener('load',()=>{
-        for(let i =0 ;i<20;i++){
-        //     setTimeout(function a(){
-        //         main.innerText = i++
+        function a(){
+            main.innerText = i++
 
-        //         for(let k=0;k<5;k++){
-        //             console.log(k)
-        //         }  
-        //     setTimeout(a)
-        // })
-
-            setInterval(function a(){
-                main.innerText = i++
-
-                for(let k=0;k<5;k++){
-                    console.log(k)// 利用log
-                }  
-        })
+            for(let k=0;k<5;k++){
+                i++
+            }  
+        }
+        for(let i =0 ;i<200000;i++){
+            setInterval(a)
   
         }
     
