@@ -22,17 +22,17 @@
 <script>
     let i = 0
 
-    window.addEventListener('load',frame)
+    // window.addEventListener('load',frame)
     window.addEventListener('load',()=>{
         function a(){
             main.innerText = i++
 
-            for(let k=0;k<5;k++){
-                i++
+            for(let k=0;k<500;k++){
+                console.log('a')
             }  
         }
-        for(let i =0 ;i<200000;i++){
-            setInterval(a)
+        for(let i =0 ;i<2;i++){
+            setInterval(a,100)
   
         }
     
