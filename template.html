@@ -107,30 +107,54 @@
 <img class="link-image"/>
 <script>
     let i = 0
-
-    window.addEventListener('load',frame)
-    window.addEventListener('load',()=>{
-        function a(){
+    function a(){
             main.innerText = i++
 
             for(let k=0;k<100;k++){
                 console.log('a')
             }  
-        }
-        for(let i =0 ;i<2;i++){
-            setInterval(a,500)
-  
-        }
+    }
+
+    function b(){
+        main.innerText = i++
+
+        for(let k=0;k<100;k++){
+            console.log('b')
+        }  
+    }
+
+    window.addEventListener('load',frame)
+    window.addEventListener('load',idle)
+    window.addEventListener('load',()=>{ 
+        setInterval(()=>{
+            a()
+            // Promise.resolve().then(a)
+            new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    b()
+                    resolve()// resolve promise 的 task
+                })
+            }).then(()=>{
+                a()
+            })
+        },100)
     
-        
     })
     function frame(){
         main.innerText = i++
-           for(let k=0;k<300;k++){
+           for(let k=0;k<10;k++){
                console.log('requestAnimationFrame')
 
             }  
         window.requestAnimationFrame(frame)
+    }
+    function idle(){
+        main.innerText = i++
+           for(let k=0;k<10;k++){
+               console.log('requestIdleCallback')
+
+            }  
+        window.requestIdleCallback(idle)
     }
 </script>
 <!-- <script>
